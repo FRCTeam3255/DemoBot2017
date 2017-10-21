@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3255.robot.commands.ExampleCommand;
-<<<<<<< HEAD
+
 import org.usfirst.frc.team3255.robot.subsystems.Collector;
-=======
+
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
->>>>>>> origin/master
+
 import org.usfirst.frc.team3255.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot.subsystems.Vision;
@@ -46,12 +46,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-<<<<<<< HEAD
+
 		vision = new Vision();
 		telemetry = new Telemetry();
-=======
+
 		drivetrain = new Drivetrain();
->>>>>>> origin/master
+
 		
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
