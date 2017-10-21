@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3255.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3255.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
+import org.usfirst.frc.team3255.robot.subsystems.Vision;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +21,9 @@ import org.usfirst.frc.team3255.robot.subsystems.ExampleSubsystem;
  * directory.
  */
 public class Robot extends IterativeRobot {
+	
+	public static Vision vision = null;
+	public static Telemetry telemetry = null;
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
@@ -32,6 +37,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		vision = new Vision();
+		telemetry = new Telemetry();
+		
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -51,6 +59,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
+		
 	}
 
 	/**
@@ -86,6 +96,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
 	}
 
 	@Override
@@ -104,6 +115,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
 	}
 
 	/**
