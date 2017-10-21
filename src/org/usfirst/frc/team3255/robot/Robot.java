@@ -9,6 +9,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3255.robot.commands.ExampleCommand;
+<<<<<<< HEAD
+import org.usfirst.frc.team3255.robot.subsystems.Collector;
+=======
+import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
+>>>>>>> origin/master
 import org.usfirst.frc.team3255.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot.subsystems.Vision;
@@ -25,8 +30,12 @@ public class Robot extends IterativeRobot {
 	public static Vision vision = null;
 	public static Telemetry telemetry = null;
 
+	public static Collector collector = null;
+	
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	
+	public static Drivetrain drivetrain = null;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -37,8 +46,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+<<<<<<< HEAD
 		vision = new Vision();
 		telemetry = new Telemetry();
+=======
+		drivetrain = new Drivetrain();
+>>>>>>> origin/master
 		
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
