@@ -9,11 +9,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3255.robot.commands.ExampleCommand;
-<<<<<<< HEAD
+
 import org.usfirst.frc.team3255.robot.subsystems.Collector;
-=======
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
->>>>>>> origin/master
 import org.usfirst.frc.team3255.robot.subsystems.ExampleSubsystem;
 
 /**

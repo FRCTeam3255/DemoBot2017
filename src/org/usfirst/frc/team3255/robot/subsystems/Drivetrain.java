@@ -5,6 +5,7 @@ import org.usfirst.frc.team3255.robot.RobotMap;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -21,16 +22,17 @@ public class Drivetrain extends Subsystem {
 	private CANTalon leftBackTalon = null;
 	private CANTalon rightBackTalon = null;
 	
-	private DoubleSolenoid frontSol = null;
-	private DoubleSolenoid backSol = null;
+	private DoubleSolenoid frontSolenoid = null;
+	private DoubleSolenoid backSolenoid = null;
 	
 	private Encoder leftEncoder = null;
 	private Encoder rightEncoder = null;
 	
-	private RobotDrive robotdrive = null;
+	private RobotDrive robotDrive = null;
 	
 	public Drivetrain() {
 		super();
+		//talons
 		leftFrontTalon = new CANTalon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
 		leftBackTalon = new CANTalon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
 		rightFrontTalon = new CANTalon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
@@ -45,6 +47,23 @@ public class Drivetrain extends Subsystem {
 		leftBackTalon.setSafetyEnabled(false);
 		rightFrontTalon.setSafetyEnabled(false);
 		rightBackTalon.setSafetyEnabled(false);
+		
+		//solenoids
+		frontSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_FRONT_SHIFT_UP, RobotMap.DRIVETRAIN_FRONT_SHIFT_DOWN);
+		backSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_BACK_SHIFT_UP, RobotMap.DRIVETRAIN_BACK_SHIFT_DOWN);
+		
+		//encoders
+		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_LEFT_ENCODER_A, RobotMap.DRIVETRAIN_LEFT_ENCODER_B);
+		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_RIGHT_ENCODER_A, RobotMap.DRIVETRAIN_RIGHT_ENCODER_B);
+		
+		//robotDrive
+		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
+		
+		robotDrive.setSafetyEnabled(false);
+	}
+	
+	public void arcadeDrive(double moveSpeed, double rotateSpeed){
+		robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
 	}
 	
 	public void setSpeed(double speed) {
@@ -54,6 +73,31 @@ public class Drivetrain extends Subsystem {
 		rightBackTalon.set(-speed);
 	}
 	
+	public void shiftUp() {
+		frontSolenoid.set(Value.kForward);
+		backSolenoid.set(Value.kForward);
+	}
+	
+	public void shiftDown() {
+		frontSolenoid.set(Value.kReverse);
+		backSolenoid.set(Value.kReverse);
+	}
+	
+	public double getLeftEncoderCount() {
+		return leftEncoder.get();
+	}
+	
+	public double getRightEncoderCount() {
+		return rightEncoder.get();
+	}
+	
+	//getEncoderCount?
+	
+	public void resetEncoderCount() {
+		leftEncoder.reset();
+		rightEncoder.reset();
+	}
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

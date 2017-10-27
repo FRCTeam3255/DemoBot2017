@@ -8,42 +8,41 @@ package org.usfirst.frc.team3255.robot;
  */
 public class RobotMap {
 
-<<<<<<< HEAD
-	public static final int COLLECTOR_LEFT_TALON = 0;
-	public static final int COLLECTOR_RIGHT_TALON = 0;
+	//Talons
+	public static final int COLLECTOR_LEFT_TALON = 1;
+	public static final int COLLECTOR_RIGHT_TALON = 2;
 	
+	public static final int DRIVETRAIN_LEFT_FRONT_TALON = 3;
+	public static final int DRIVETRAIN_LEFT_BACK_TALON = 4;
+	public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 5;
+	public static final int DRIVETRAIN_RIGHT_BACK_TALON = 6;
+	
+	public static final int SHOOTER_LEFT_TALON = 7;
+	public static final int SHOOTER_RIGHT_TALON = 8;
+	public static final int SHOOTER_TURRET_TALON = 9;
+
+	//Solenoids
 	public static final int COLLECTOR_SOLENOID_UP = 0;
-	public static final int COLLECTOR_SOLENOID_DOWN = 0;
+	public static final int COLLECTOR_SOLENOID_DOWN = 1;
+	
+	public static final int DRIVETRAIN_FRONT_SHIFT_UP = 2;
+	public static final int DRIVETRAIN_FRONT_SHIFT_DOWN = 3;
+	public static final int DRIVETRAIN_BACK_SHIFT_UP = 4;
+	public static final int DRIVETRAIN_BACK_SHIFT_DOWN = 5;
+	
+	//Encoders
+	public static final int DRIVETRAIN_LEFT_ENCODER_A = 0;
+	public static final int DRIVETRAIN_LEFT_ENCODER_B = 1;
+	public static final int DRIVETRAIN_RIGHT_ENCODER_A = 2;
+	public static final int DRIVETRAIN_RIGHT_ENCODER_B = 3;
 
-=======
-	public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
-	public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
-	public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
-	public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
->>>>>>> origin/master
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-	
-<<<<<<< HEAD
-=======
-	
-	
-
->>>>>>> origin/master
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
-	
 	// Joysticks
 	public static final int JOYSTICK_DRIVER = 0;
 	public static final int JOYSTICK_MANIPULATOR = 1;
 	
 	// Axes
 	public static final int AXIS_DRIVER_SPEED = 1;
-	public static final int AXIS_DRIVER_MOVE = 1;
-	public static final int AXIS_DRIVER_ROTATE = 2;
+	public static final int AXIS_DRIVER_MOVE = 2;
+	public static final int AXIS_DRIVER_ROTATE = 3;
 	
 }

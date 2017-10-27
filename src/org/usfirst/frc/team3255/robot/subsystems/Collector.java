@@ -5,6 +5,7 @@ import org.usfirst.frc.team3255.robot.RobotMap;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -33,7 +34,14 @@ public class Collector extends Subsystem {
 		
 		//Solenoids
 		collectorSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_SOLENOID_UP, RobotMap.COLLECTOR_SOLENOID_DOWN);
-		
+	}
+	
+	public void deploy() {
+		collectorSolenoid.set(Value.kForward);
+	}
+	
+	public void retract() {
+		collectorSolenoid.set(Value.kReverse);
 	}
 	
 	public void collect() {
