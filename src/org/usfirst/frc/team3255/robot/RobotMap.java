@@ -30,12 +30,6 @@ public class RobotMap {
 	public static final int DRIVETRAIN_BACK_SHIFT_UP = 4;
 	public static final int DRIVETRAIN_BACK_SHIFT_DOWN = 5;
 	
-	//Encoders
-	public static final int DRIVETRAIN_LEFT_ENCODER_A = 0;
-	public static final int DRIVETRAIN_LEFT_ENCODER_B = 1;
-	public static final int DRIVETRAIN_RIGHT_ENCODER_A = 2;
-	public static final int DRIVETRAIN_RIGHT_ENCODER_B = 3;
-
 	// Joysticks
 	public static final int JOYSTICK_DRIVER = 0;
 	public static final int JOYSTICK_MANIPULATOR = 1;

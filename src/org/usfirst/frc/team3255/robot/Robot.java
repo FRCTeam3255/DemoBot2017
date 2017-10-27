@@ -13,6 +13,9 @@ import org.usfirst.frc.team3255.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3255.robot.subsystems.Collector;
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team3255.robot.subsystems.Shooter;
+import org.usfirst.frc.team3255.robot.subsystems.Telemetry;
+import org.usfirst.frc.team3255.robot.subsystems.Vision;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,6 +32,9 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	
 	public static Drivetrain drivetrain = null;
+	public static Vision vision = null;
+	public static Shooter shooter = null;
+	public static Telemetry telemetry = null;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -40,6 +46,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		drivetrain = new Drivetrain();
+		vision = new Vision();
+		shooter = new Shooter();
+		collector = new Collector();
+		telemetry = new Telemetry();
 		
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
@@ -60,6 +70,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
 	}
 
 	/**
@@ -95,6 +106,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
 	}
 
 	@Override
@@ -113,6 +125,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		telemetry.update();
 	}
 
 	/**

@@ -25,9 +25,6 @@ public class Drivetrain extends Subsystem {
 	private DoubleSolenoid frontSolenoid = null;
 	private DoubleSolenoid backSolenoid = null;
 	
-	private Encoder leftEncoder = null;
-	private Encoder rightEncoder = null;
-	
 	private RobotDrive robotDrive = null;
 	
 	public Drivetrain() {
@@ -51,10 +48,6 @@ public class Drivetrain extends Subsystem {
 		//solenoids
 		frontSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_FRONT_SHIFT_UP, RobotMap.DRIVETRAIN_FRONT_SHIFT_DOWN);
 		backSolenoid = new DoubleSolenoid(RobotMap.DRIVETRAIN_BACK_SHIFT_UP, RobotMap.DRIVETRAIN_BACK_SHIFT_DOWN);
-		
-		//encoders
-		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_LEFT_ENCODER_A, RobotMap.DRIVETRAIN_LEFT_ENCODER_B);
-		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_RIGHT_ENCODER_A, RobotMap.DRIVETRAIN_RIGHT_ENCODER_B);
 		
 		//robotDrive
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
@@ -84,18 +77,18 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public double getLeftEncoderCount() {
-		return leftEncoder.get();
+		return leftFrontTalon.getEncPosition();
 	}
 	
 	public double getRightEncoderCount() {
-		return rightEncoder.get();
+		return rightFrontTalon.getEncPosition();
 	}
 	
 	//getEncoderCount?
 	
 	public void resetEncoderCount() {
-		leftEncoder.reset();
-		rightEncoder.reset();
+		leftFrontTalon.setEncPosition(0);
+		rightFrontTalon.setEncPosition(0);
 	}
 
     public void initDefaultCommand() {
