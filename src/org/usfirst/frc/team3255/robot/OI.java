@@ -1,5 +1,11 @@
 package org.usfirst.frc.team3255.robot;
 
+import org.usfirst.frc.team3255.robot.commands.CollectorCollect;
+import org.usfirst.frc.team3255.robot.commands.CollectorReverse;
+import org.usfirst.frc.team3255.robot.commands.CollectorStop;
+import org.usfirst.frc.team3255.robot.commands.ShooterShoot;
+import org.usfirst.frc.team3255.robot.commands.ShooterStop;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -64,4 +70,14 @@ public class OI {
 	Button D8 = new JoystickButton(driverStick, 8);
 	Button D9 = new JoystickButton(driverStick, 9);
 	Button D10 = new JoystickButton(driverStick, 10);
+	
+	public OI(){
+		S1.whileHeld(new ShooterShoot());
+		S1.whenReleased(new ShooterStop());
+		S3.whileHeld(new CollectorCollect());
+		S3.whenReleased(new CollectorStop());
+		S4.whileHeld(new CollectorReverse());
+		S4.whenReleased(new CollectorStop());
+	}
 }
+
