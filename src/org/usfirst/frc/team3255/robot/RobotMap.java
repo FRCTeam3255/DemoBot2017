@@ -30,6 +30,12 @@ public class RobotMap {
 	public static final int DRIVETRAIN_BACK_SHIFT_UP = 4;
 	public static final int DRIVETRAIN_BACK_SHIFT_DOWN = 5;
 	
+	//Servo
+	public static final int SHOOTER_SERVO = 0;
+	
+	//Analog Input
+	public static final int SHOOTER_ENCODER = 0;
+	
 	// Joysticks
 	public static final int JOYSTICK_DRIVER = 0;
 	public static final int JOYSTICK_MANIPULATOR = 1;
@@ -38,5 +44,4 @@ public class RobotMap {
 	public static final int AXIS_DRIVER_SPEED = 1;
 	public static final int AXIS_DRIVER_MOVE = 2;
 	public static final int AXIS_DRIVER_ROTATE = 3;
-	
 }
